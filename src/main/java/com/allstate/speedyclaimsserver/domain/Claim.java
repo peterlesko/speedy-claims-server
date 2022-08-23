@@ -1,36 +1,35 @@
 package com.allstate.speedyclaimsserver.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Claim {
 
-    private Integer claimId;
-    private String policyType;
-    private Integer policyNumber;
-    private String surname;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int claimId;
+
+    Integer policyNumber;
+    String surname;
 
     public Claim() {
     }
 
-    public Claim(Integer claimId, String policyType, Integer policyNumber, String surname) {
+    public Claim(int claimId, Integer policyNumber, String surname) {
         this.claimId = claimId;
-        this.policyType = policyType;
         this.policyNumber = policyNumber;
         this.surname = surname;
     }
 
-    public Integer getClaimId() {
+    public int getClaimId() {
         return claimId;
     }
 
-    public void setClaimId(Integer claimId) {
+    public void setClaimId(int claimId) {
         this.claimId = claimId;
-    }
-
-    public String getPolicyType() {
-        return policyType;
-    }
-
-    public void setPolicyType(String policyType) {
-        this.policyType = policyType;
     }
 
     public Integer getPolicyNumber() {
