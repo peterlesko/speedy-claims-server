@@ -10,7 +10,7 @@ public class Claim {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int claimId;
+    Integer claimId;
 
     Integer policyNumber;
     String surname;
@@ -18,17 +18,17 @@ public class Claim {
     public Claim() {
     }
 
-    public Claim(int claimId, Integer policyNumber, String surname) {
+    public Claim(Integer claimId, Integer policyNumber, String surname) {
         this.claimId = claimId;
         this.policyNumber = policyNumber;
         this.surname = surname;
     }
 
-    public int getClaimId() {
+    public Integer getClaimId() {
         return claimId;
     }
 
-    public void setClaimId(int claimId) {
+    public void setClaimId(Integer claimId) {
         this.claimId = claimId;
     }
 

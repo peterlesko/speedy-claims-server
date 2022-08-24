@@ -9,5 +9,4 @@ public class SpeedyClaimsServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpeedyClaimsServerApplication.class, args);
 	}
-
 }
