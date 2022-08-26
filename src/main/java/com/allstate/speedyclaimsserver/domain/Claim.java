@@ -1,18 +1,18 @@
 package com.allstate.speedyclaimsserver.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="claim")
 public class Claim {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer claimId;
 
+    @Column(name="policy_number")
     Integer policyNumber;
+
     String surname;
 
     public Claim() {
@@ -47,4 +47,7 @@ public class Claim {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+
+
 }
