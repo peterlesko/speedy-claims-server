@@ -48,6 +48,12 @@ public class Claim {
         this.surname = surname;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Claim{" +
+                "claimId=" + claimId +
+                ", policyNumber=" + policyNumber +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

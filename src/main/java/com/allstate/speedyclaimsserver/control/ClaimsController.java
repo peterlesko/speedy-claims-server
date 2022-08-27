@@ -3,6 +3,7 @@ package com.allstate.speedyclaimsserver.control;
 import com.allstate.speedyclaimsserver.domain.Claim;
 import com.allstate.speedyclaimsserver.service.ClaimsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
@@ -35,13 +36,16 @@ public class ClaimsController {
        }
     }
 
-    @GetMapping("/{claimId}")
+    @GetMapping(value = "/{claimId}", produces={MediaType.APPLICATION_JSON_VALUE})
     public Claim getClaimById(@PathVariable("claimId") Integer claimId) {
         System.out.println("Looking for claim " + claimId);
         return claimsService.getClaimByClaimId(claimId);
     }
 
-
+    @PostMapping
+    public Claim addClaim(@RequestBody Claim newClaim) {
+        return claimsService.add(newClaim);
+    }
 
     @GetMapping("/volume")
     public Map<String, String> getNumberOfClaims() {

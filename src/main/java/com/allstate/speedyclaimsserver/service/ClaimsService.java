@@ -10,7 +10,7 @@ public interface ClaimsService {
     public List<Claim> getAllClaimsForPolicyNumber(Integer policyNumber);
     public List<Claim> getAllClaimsForSurname(String surname);
     public Claim getClaimByClaimId(Integer claimId);
-
+    public Claim add(Claim claim);
 
     public int countClaims();
 }

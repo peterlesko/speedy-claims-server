@@ -43,6 +43,11 @@ public class ClaimsServiceImpl implements ClaimsService {
         throw new ClaimNotFoundException("There is no claim with a claimId of " + claimId);
     }
 
+    @Override
+    public Claim add(Claim claim) {
+        return claimRepository.save(claim);
+    }
+
 
     @Override
     public int countClaims() {
