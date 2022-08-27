@@ -2,6 +2,7 @@ package com.allstate.speedyclaimsserver.service;
 
 import com.allstate.speedyclaimsserver.data.ClaimRepository;
 import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.dto.ClaimDTO;
 import com.allstate.speedyclaimsserver.exceptions.ClaimNotFoundException;
 import com.allstate.speedyclaimsserver.exceptions.InvalidNewClaimException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,5 +72,18 @@ public class ClaimsServiceImpl implements ClaimsService {
     public int countClaims() {
         return 192;
     }
+
+    @Override
+    public Claim addClaim(ClaimDTO claimDTO) {
+        Claim claim = claimDTO.toClaim();
+        //return claimRepository.save(newClaim.toClaim());
+        return claim;
+    }
+
+    //doesnt work DTO
+//    @Override
+//    public Claim addClaim(ClaimDTO newClaim) {
+//        return claimRepository.save(newClaim.toClaim());
+//    }
 
 }

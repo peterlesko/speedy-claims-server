@@ -1,6 +1,7 @@
 package com.allstate.speedyclaimsserver.control;
 
 import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.dto.ClaimDTO;
 import com.allstate.speedyclaimsserver.service.ClaimsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -42,10 +43,10 @@ public class ClaimsController {
         return claimsService.getClaimByClaimId(claimId);
     }
 
-    @PostMapping
-    public Claim addClaim(@RequestBody Claim newClaim) {
-        return claimsService.add(newClaim);
-    }
+//    @PostMapping
+//    public Claim addClaim(@RequestBody Claim newClaim) {
+//        return claimsService.add(newClaim);
+//    }
 
     @PutMapping("/{claimId}")
     public Claim updateClaim(@PathVariable("claimId") Integer claimId,
@@ -61,4 +62,10 @@ public class ClaimsController {
         results.put("volume", volume.toString());
         return results;
     }
+
+    @PostMapping
+    public Claim newClaim(@RequestBody ClaimDTO claimDTO) {
+        return claimsService.addClaim(claimDTO);
+    }
+
 }
