@@ -6,9 +6,11 @@ import java.util.List;
 public interface ClaimsService {
 
     public List<Claim> getAllClaims();
-    public List<Claim> getAllTransactionsForClaimId(Integer claimId);
-    public List<Claim> getAllTransactionsForPolicyNumber(Integer policyNumber);
-    public List<Claim> getAllTransactionsForSurname(String surname);
-    public int countClaims();
+    public List<Claim> getAllClaimsForClaimId(Integer claimId);
+    public List<Claim> getAllClaimsForPolicyNumber(Integer policyNumber);
+    public List<Claim> getAllClaimsForSurname(String surname);
+    public Claim getClaimByClaimId(Integer claimId);
 
+
+    public int countClaims();
 }

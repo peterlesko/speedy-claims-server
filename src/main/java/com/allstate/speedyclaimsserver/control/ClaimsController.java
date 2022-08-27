@@ -21,16 +21,27 @@ public class ClaimsController {
                                     @RequestParam(value="policyNumber", required=false) Integer policyNumber,
                                     @RequestParam(value="surname", required=false) String surname) {
 
-       if (claimId != null) {
-            return claimsService.getAllTransactionsForClaimId(claimId);
-       } else if (policyNumber != null) {
-            return claimsService.getAllTransactionsForPolicyNumber(policyNumber);
-       } else if (surname != null){
-            return claimsService.getAllTransactionsForSurname(surname);
-       } else {
+        if (claimId != null) {
+            return claimsService.getAllClaimsForClaimId(claimId);
+       }
+        else if (policyNumber != null) {
+            return claimsService.getAllClaimsForPolicyNumber(policyNumber);
+       }
+        else if (surname != null){
+            return claimsService.getAllClaimsForSurname(surname);
+       }
+       else {
            return claimsService.getAllClaims();
        }
     }
+
+    @GetMapping("/{claimId}")
+    public Claim getClaimById(@PathVariable("claimId") Integer claimId) {
+        System.out.println("Looking for claim " + claimId);
+        return claimsService.getClaimByClaimId(claimId);
+    }
+
+
 
     @GetMapping("/volume")
     public Map<String, String> getNumberOfClaims() {
