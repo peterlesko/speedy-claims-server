@@ -47,6 +47,13 @@ public class ClaimsController {
         return claimsService.add(newClaim);
     }
 
+    @PutMapping("/{claimId}")
+    public Claim updateClaim(@PathVariable("claimId") Integer claimId,
+                             @RequestBody Map<String, String> data) {
+
+        return claimsService.updateClaim(claimId, data);
+    }
+
     @GetMapping("/volume")
     public Map<String, String> getNumberOfClaims() {
         Integer volume = claimsService.countClaims();

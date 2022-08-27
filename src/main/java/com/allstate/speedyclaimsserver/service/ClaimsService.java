@@ -2,6 +2,7 @@ package com.allstate.speedyclaimsserver.service;
 
 import com.allstate.speedyclaimsserver.domain.Claim;
 import java.util.List;
+import java.util.Map;
 
 public interface ClaimsService {
 
@@ -11,6 +12,6 @@ public interface ClaimsService {
     public List<Claim> getAllClaimsForSurname(String surname);
     public Claim getClaimByClaimId(Integer claimId);
     public Claim add(Claim claim);
-
+    public Claim updateClaim(Integer claimId, Map<String, String> data);
     public int countClaims();
 }

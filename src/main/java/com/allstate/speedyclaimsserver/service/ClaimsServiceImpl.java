@@ -7,6 +7,7 @@ import com.allstate.speedyclaimsserver.exceptions.InvalidNewClaimException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -56,6 +57,14 @@ public class ClaimsServiceImpl implements ClaimsService {
         catch (Exception e) {
             throw new InvalidNewClaimException("We are unable to save your claim");
         }
+    }
+
+    @Override
+    public Claim updateClaim(Integer claimId, Map<String, String> data) {
+        Claim claim = getClaimByClaimId(claimId);
+        if(data.containsKey("policyNumber")) claim.setPolicyNumber(Integer.parseInt(data.get("policyNumber")));
+        if(data.containsKey("surname")) claim.setSurname(data.get("surname"));
+        return claimRepository.save(claim);
     }
 
     @Override
