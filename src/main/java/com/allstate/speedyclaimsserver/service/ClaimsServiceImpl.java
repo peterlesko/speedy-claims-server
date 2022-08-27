@@ -3,6 +3,7 @@ package com.allstate.speedyclaimsserver.service;
 import com.allstate.speedyclaimsserver.data.ClaimRepository;
 import com.allstate.speedyclaimsserver.domain.Claim;
 import com.allstate.speedyclaimsserver.exceptions.ClaimNotFoundException;
+import com.allstate.speedyclaimsserver.exceptions.InvalidNewClaimException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -45,9 +46,17 @@ public class ClaimsServiceImpl implements ClaimsService {
 
     @Override
     public Claim add(Claim claim) {
-        return claimRepository.save(claim);
-    }
 
+        if(claim.getPolicyNumber() == null) {
+            throw new InvalidNewClaimException("Policy number must be provided");
+        }
+        try {
+            return claimRepository.save(claim);
+        }
+        catch (Exception e) {
+            throw new InvalidNewClaimException("We are unable to save your claim");
+        }
+    }
 
     @Override
     public int countClaims() {
