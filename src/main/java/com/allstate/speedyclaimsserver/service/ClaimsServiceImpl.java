@@ -76,14 +76,6 @@ public class ClaimsServiceImpl implements ClaimsService {
     @Override
     public Claim addClaim(ClaimDTO claimDTO) {
         Claim claim = claimDTO.toClaim();
-        //return claimRepository.save(newClaim.toClaim());
-        return claim;
+        return claimRepository.save(claim);
     }
-
-    //doesnt work DTO
-//    @Override
-//    public Claim addClaim(ClaimDTO newClaim) {
-//        return claimRepository.save(newClaim.toClaim());
-//    }
-
 }

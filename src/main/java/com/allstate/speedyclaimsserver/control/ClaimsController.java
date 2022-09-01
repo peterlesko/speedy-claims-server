@@ -65,6 +65,7 @@ public class ClaimsController {
 
     @PostMapping
     public Claim newClaim(@RequestBody ClaimDTO claimDTO) {
+        System.out.print("Post request executed");
         return claimsService.addClaim(claimDTO);
     }
 
