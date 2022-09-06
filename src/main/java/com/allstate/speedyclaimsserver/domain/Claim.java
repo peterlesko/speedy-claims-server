@@ -1,6 +1,7 @@
 package com.allstate.speedyclaimsserver.domain;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="claim")
@@ -8,37 +9,34 @@ public class Claim {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer claimId;
+    private Integer claimId;
 
     @Column(name="policy_number")
-    Integer policyNumber;
+    private Integer policyNumber;
 
-    String surname;
-    String status;
-    String type;
+    private String surname;
+    private String status;
+    private String type;
+    private LocalDate date;
 
     public Claim() {
     }
 
-//    public Claim(Integer claimId, Integer policyNumber, String surname) {
-//        this.claimId = claimId;
-//        this.policyNumber = policyNumber;
-//        this.surname = surname;
-//    }
-
-//    public Claim(Integer claimId, Integer policyNumber, String surname, String status) {
+//    public Claim(Integer claimId, Integer policyNumber, String surname, String status, String type) {
 //        this.claimId = claimId;
 //        this.policyNumber = policyNumber;
 //        this.surname = surname;
 //        this.status = status;
+//        this.type = type;
 //    }
 
-    public Claim(Integer claimId, Integer policyNumber, String surname, String status, String type) {
+    public Claim(Integer claimId, Integer policyNumber, String surname, String status, String type, LocalDate date) {
         this.claimId = claimId;
         this.policyNumber = policyNumber;
         this.surname = surname;
         this.status = status;
         this.type = type;
+        this.date = date;
     }
 
     public Integer getClaimId() {
@@ -81,16 +79,14 @@ public class Claim {
     public void setType(String type) {
         this.type = type;
     }
-//
-//    @Override
-//    public String toString() {
-//        return "Claim{" +
-//                "claimId=" + claimId +
-//                ", policyNumber=" + policyNumber +
-//                ", surname='" + surname + '\'' +
-//                '}';
-//    }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
@@ -100,6 +96,7 @@ public class Claim {
                 ", surname='" + surname + '\'' +
                 ", status='" + status + '\'' +
                 ", type='" + type + '\'' +
+                ", date=" + date +
                 '}';
     }
 }

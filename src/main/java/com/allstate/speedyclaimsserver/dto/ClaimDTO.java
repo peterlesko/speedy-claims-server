@@ -2,36 +2,30 @@ package com.allstate.speedyclaimsserver.dto;
 
 import com.allstate.speedyclaimsserver.domain.Claim;
 
+import java.time.LocalDate;
+
 public class ClaimDTO {
 
     private Integer policyNumber;
     private String surname;
     private String status;
     private String type;
+    private LocalDate date;
 
     public ClaimDTO() {
     }
 
-//    public ClaimDTO(Claim claim) {
-//        this.policyNumber = claim.getPolicyNumber();
-//        this.surname = claim.getSurname();
-//        this.status = claim.getStatus();
-//    }
-
-    public ClaimDTO(Integer policyNumber, String surname, String status, String type) {
+    public ClaimDTO(Integer policyNumber, String surname, String status, String type, LocalDate date) {
         this.policyNumber = policyNumber;
         this.surname = surname;
         this.status = status;
         this.type = type;
+        this.date = date;
     }
-//    public Claim toClaim() {
-//        return new Claim(null, policyNumber, surname);
-//    }
 
     public Claim toClaim() {
-        return new Claim(null, policyNumber, surname, status, type);
+        return new Claim(null, policyNumber, surname, status, type, date);
     }
-
 
 //    public Claim toClaim() {
 //        return new Claim(null, 987, "Mark");
@@ -67,6 +61,14 @@ public class ClaimDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
 
