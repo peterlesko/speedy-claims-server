@@ -51,7 +51,7 @@ public class ClaimsController {
     @PutMapping("/{claimId}")
     public Claim updateClaim(@PathVariable("claimId") Integer claimId,
                              @RequestBody Map<String, String> data) {
-
+        System.out.print("<<<<<<<<   Put request executed");
         return claimsService.updateClaim(claimId, data);
     }
 

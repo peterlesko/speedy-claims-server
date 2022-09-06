@@ -16,10 +16,15 @@ public class  BootstrapService {
     public void initializeData() {
         if (claimRepository.findAll().size() == 0) {
 
-            Claim claim1 = new Claim(null, 12, "Barr");
-            Claim claim2 = new Claim(null, 34, "Lee");
-            Claim claim3 = new Claim(null, 56, "Joe");
-            Claim claim4 = new Claim(null, 78, "Ray");
+//            Claim claim1 = new Claim(null, 12, "Barr");
+//            Claim claim2 = new Claim(null, 34, "Lee");
+//            Claim claim3 = new Claim(null, 56, "Joe");
+//            Claim claim4 = new Claim(null, 78, "Ray");
+
+            Claim claim1 = new Claim(null, 12, "Barr", "open", "auto");
+            Claim claim2 = new Claim(null, 34, "Lee", "closed", "property");
+            Claim claim3 = new Claim(null, 56, "Joe", "", "pet");
+            Claim claim4 = new Claim(null, 78, "Ray", "progress", "auto");
 
             claimRepository.save(claim1);
             claimRepository.save(claim2);
