@@ -6,30 +6,56 @@ import java.time.LocalDate;
 
 public class ClaimDTO {
 
-    private Integer policyNumber;
-    private String surname;
-    private String status;
     private String type;
-    private LocalDate date;
+    private String status;
+
+    private Integer policyNumber;
+
+    private String surname;
+    private LocalDate claimStartDate;
+
+    private String claimReason;
+    private String description;
+    private Integer estAmount;
 
     public ClaimDTO() {
     }
 
-    public ClaimDTO(Integer policyNumber, String surname, String status, String type, LocalDate date) {
+    public ClaimDTO(String type, String status, Integer policyNumber, String surname, LocalDate claimStartDate, String claimReason, String description, Integer estAmount) {
+        this.type = type;
+        this.status = status;
         this.policyNumber = policyNumber;
         this.surname = surname;
-        this.status = status;
-        this.type = type;
-        this.date = date;
+        this.claimStartDate = claimStartDate;
+        this.claimReason = claimReason;
+        this.description = description;
+        this.estAmount = estAmount;
     }
 
     public Claim toClaim() {
-        return new Claim(null, policyNumber, surname, status, type, date);
+        return new Claim(null, type,  status, policyNumber, surname, claimStartDate, claimReason, description, estAmount);
     }
 
 //    public Claim toClaim() {
 //        return new Claim(null, 987, "Mark");
 //    }
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Integer getPolicyNumber() {
         return policyNumber;
@@ -47,28 +73,36 @@ public class ClaimDTO {
         this.surname = surname;
     }
 
-    public String getStatus() {
-        return status;
+    public LocalDate getClaimStartDate() {
+        return claimStartDate;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setClaimStartDate(LocalDate claimStartDate) {
+        this.claimStartDate = claimStartDate;
     }
 
-    public String getType() {
-        return type;
+    public String getClaimReason() {
+        return claimReason;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setClaimReason(String claimReason) {
+        this.claimReason = claimReason;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getEstAmount() {
+        return estAmount;
+    }
+
+    public void setEstAmount(Integer estAmount) {
+        this.estAmount = estAmount;
     }
 }
 

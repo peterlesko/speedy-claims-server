@@ -11,32 +11,37 @@ public class Claim {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer claimId;
 
+    private String type;
+    private String status;
+
     @Column(name="policy_number")
     private Integer policyNumber;
 
     private String surname;
-    private String status;
-    private String type;
-    private LocalDate date;
+    @Column(name="date")
+    private LocalDate claimStartDate;
+
+    private String claimReason;
+    private String description;
+    private Integer estAmount;
+//    private String
+//    private String
+//    private String
 
     public Claim() {
     }
 
-//    public Claim(Integer claimId, Integer policyNumber, String surname, String status, String type) {
-//        this.claimId = claimId;
-//        this.policyNumber = policyNumber;
-//        this.surname = surname;
-//        this.status = status;
-//        this.type = type;
-//    }
 
-    public Claim(Integer claimId, Integer policyNumber, String surname, String status, String type, LocalDate date) {
+    public Claim(Integer claimId, String type, String status, Integer policyNumber, String surname, LocalDate claimStartDate, String claimReason, String description, Integer estAmount) {
         this.claimId = claimId;
+        this.type = type;
+        this.status = status;
         this.policyNumber = policyNumber;
         this.surname = surname;
-        this.status = status;
-        this.type = type;
-        this.date = date;
+        this.claimStartDate = claimStartDate;
+        this.claimReason = claimReason;
+        this.description = description;
+        this.estAmount = estAmount;
     }
 
     public Integer getClaimId() {
@@ -45,6 +50,22 @@ public class Claim {
 
     public void setClaimId(Integer claimId) {
         this.claimId = claimId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getPolicyNumber() {
@@ -59,44 +80,54 @@ public class Claim {
         return surname;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public String getType() {
-        return type;
+    public LocalDate getClaimStartDate() {
+        return claimStartDate;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setClaimStartDate(LocalDate claimStartDate) {
+        this.claimStartDate = claimStartDate;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getClaimReason() {
+        return claimReason;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setClaimReason(String claimReason) {
+        this.claimReason = claimReason;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getEstAmount() {
+        return estAmount;
+    }
+
+    public void setEstAmount(Integer estAmount) {
+        this.estAmount = estAmount;
     }
 
     @Override
     public String toString() {
         return "Claim{" +
                 "claimId=" + claimId +
+                ", type='" + type + '\'' +
+                ", status='" + status + '\'' +
                 ", policyNumber=" + policyNumber +
                 ", surname='" + surname + '\'' +
-                ", status='" + status + '\'' +
-                ", type='" + type + '\'' +
-                ", date=" + date +
+                ", claimStartDate=" + claimStartDate +
+                ", claimReason='" + claimReason + '\'' +
+                ", description='" + description + '\'' +
+                ", estAmount=" + estAmount +
                 '}';
     }
 }

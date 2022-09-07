@@ -17,11 +17,19 @@ public class  BootstrapService {
     public void initializeData() {
         if (claimRepository.findAll().size() == 0) {
 
-            Claim claim1 = new Claim(null, 12, "Barr", "open", "moto", LocalDate.now());
-            Claim claim2 = new Claim(null, 34, "Lee", "closed", "property", LocalDate.now());
-            Claim claim3 = new Claim(null, 56, "Joe", "new", "moto", LocalDate.now());
-            Claim claim4 = new Claim(null, 78, "Ray", "progress", "auto", LocalDate.now());
-            Claim claim5 = new Claim(null, 91, "Cook", "new", "pet", LocalDate.now());
+            Claim claim1 = new Claim(null, "pet", "open", 12, "Barr", LocalDate.now(),
+                    "leg injury","fall from height", 250);
+
+            Claim claim2 = new Claim(null, "property", "closed",  34, "Lee", LocalDate.now(), "fire", "elect fault", 25000);
+
+            Claim claim3 = new Claim(null, "motor", "new", 56, "Joe", LocalDate.now(),
+                    "cracked windscreen", "car vandalism", 120);
+
+            Claim claim4 = new Claim(null, "property", "in progress",78, "Ray", LocalDate.now(),
+                    "burst pipe", "frozen pipe", 800);
+
+            Claim claim5 = new Claim(null, "pet", "new", 91, "Cook",  LocalDate.now(),
+                    "stomach illness", "unknown", 75 );
 
             claimRepository.save(claim1);
             claimRepository.save(claim2);
