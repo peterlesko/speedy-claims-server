@@ -7,6 +7,8 @@ import com.allstate.speedyclaimsserver.exceptions.ClaimNotFoundException;
 import com.allstate.speedyclaimsserver.exceptions.InvalidNewClaimException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -63,8 +65,23 @@ public class ClaimsServiceImpl implements ClaimsService {
     @Override
     public Claim updateClaim(Integer claimId, Map<String, String> data) {
         Claim claim = getClaimByClaimId(claimId);
+        if(data.containsKey("type")) claim.setType(data.get("type"));
+        if(data.containsKey("status")) claim.setStatus(data.get("status"));
         if(data.containsKey("policyNumber")) claim.setPolicyNumber(Integer.parseInt(data.get("policyNumber")));
+        if(data.containsKey("name")) claim.setName(data.get("name"));
         if(data.containsKey("surname")) claim.setSurname(data.get("surname"));
+        if(data.containsKey("claimStartDate")) claim.setClaimStartDate(LocalDate.parse(data.get("claimStartDate")));
+        if(data.containsKey("claimReason")) claim.setStatus(data.get("claimReason"));
+        if(data.containsKey("description ")) claim.setStatus(data.get("description"));
+        if(data.containsKey("estAmount")) claim.setStatus(data.get("estAmounts"));
+        if(data.containsKey("claimPayOut")) claim.setStatus(data.get("claimPayOut"));
+        if(data.containsKey("address")) claim.setStatus(data.get("address"));
+        if(data.containsKey("motorMake")) claim.setStatus(data.get("motorMake"));
+        if(data.containsKey("motorModel")) claim.setStatus(data.get("motorModel"));
+        if(data.containsKey("motorYom")) claim.setStatus(data.get("motorYom"));
+        if(data.containsKey("petType")) claim.setStatus(data.get("petType"));
+        if(data.containsKey("petBreed")) claim.setStatus(data.get("petBreed"));
+
         return claimRepository.save(claim);
     }
 
