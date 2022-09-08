@@ -1,7 +1,15 @@
 package com.allstate.speedyclaimsserver.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name="claim")
@@ -14,41 +22,41 @@ public class Claim {
     private String type;
     private String status;
 
-    @Column(name="policy_number")
+    @Column(name = "policy_number")
     private Integer policyNumber;
 
     private String name;
     private String surname;
 
-    @Column(name="claim_start_date")
+    @Column(name = "claim_start_date")
     private LocalDate claimStartDate;
 
-    @Column(name="claim_reason")
+    @Column(name = "claim_reason")
     private String claimReason;
 
     private String description;
 
-    @Column(name="estimated_amount")
+    @Column(name = "estimated_amount")
     private Integer estAmount;
 
-    @Column(name="claim_pay_out")
+    @Column(name = "claim_pay_out")
     private Integer claimPayOut;
 
     private String address;
 
-    @Column(name="motor_make")
+    @Column(name = "motor_make")
     private String motorMake;
 
-    @Column(name="motor_model")
+    @Column(name = "motor_model")
     private String motorModel;
 
-    @Column(name="motor_yom")
+    @Column(name = "motor_yom")
     private Integer motorYom;
 
-    @Column(name="pet_type")
+    @Column(name = "pet_type")
     private String petType;
 
-    @Column(name="pet_breed")
+    @Column(name = "pet_breed")
     private String petBreed;
 
     public Claim() {
@@ -236,5 +244,24 @@ public class Claim {
                 ", petBreed='" + petBreed + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if(this==o)return true;
+        if(o ==null|| getClass() !=o.getClass())return false;
+
+        Claim that = (Claim) o;
+        return Objects.equals(claimId, that.claimId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claimId);
+    }
+
+
+
+
 }
 

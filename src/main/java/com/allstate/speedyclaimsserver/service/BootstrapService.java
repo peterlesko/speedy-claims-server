@@ -25,7 +25,7 @@ public class  BootstrapService {
                     LocalDate.now(), "cracked windscreen", "car vandalism", 120, null,
                     null, "Tesla", "X", 2020, null, null);
 
-            Claim claim3 = new Claim(null, "property", "closed",  20, "Bob", "Lee",
+            Claim claim3 = new Claim(null, "property", "awaitingPayment",  20, "Bob", "Lee",
                     LocalDate.now(), "fire", "elect fault", 25000, 24000,
                     "Lower st 2, Mason", null, null, null, null, null);
 
@@ -37,8 +37,8 @@ public class  BootstrapService {
                     LocalDate.now(), "crashed back bumper", "reversed into gate", 600,null, null,
                     "BMW", "M3", 2019,null, null);
 
-            Claim claim6 = new Claim(null, "property", "in progress",21, "Jack", "Ray",
-                    LocalDate.now(), "burst pipe", "frozen pipe", 800, 830,
+            Claim claim6 = new Claim(null, "property", "new",21, "Jack", "Ray",
+                    LocalDate.now(), "burst pipe", "frozen pipe", 800, null,
                     "High st 4, Austin", null, null, null, null, null);
 
             claimRepository.save(claim1);

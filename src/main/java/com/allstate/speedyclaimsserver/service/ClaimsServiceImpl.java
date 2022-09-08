@@ -87,7 +87,7 @@ public class ClaimsServiceImpl implements ClaimsService {
 
     @Override
     public int countClaims() {
-        return 192;
+        return claimRepository.findAll().size();
     }
 
     @Override

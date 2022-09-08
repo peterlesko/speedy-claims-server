@@ -9,6 +9,8 @@ import java.util.Optional;
 @Repository
 public interface ClaimRepository extends JpaRepository<Claim, Integer> {
 
+//    public List<Claim> findAllByclaimId(Integer claimId);
+//    public List<Claim> findAllById(Integer id);
     public List<Claim> findByClaimId(Integer claimId);
     public List<Claim> findByPolicyNumber(Integer policyNumber);
     public List<Claim> findBySurname(String surname);

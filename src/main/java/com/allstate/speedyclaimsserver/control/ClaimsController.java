@@ -3,6 +3,7 @@ package com.allstate.speedyclaimsserver.control;
 import com.allstate.speedyclaimsserver.domain.Claim;
 import com.allstate.speedyclaimsserver.dto.ClaimDTO;
 import com.allstate.speedyclaimsserver.service.ClaimsService;
+import com.allstate.speedyclaimsserver.service.ClaimsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,11 @@ public class ClaimsController {
 
     @Autowired
     private ClaimsService claimsService;
+
+//    @Autowired
+//    public void setClaimService(ClaimsService claimService) {
+//        this.claimsService = claimService;
+//    }
 
     @GetMapping()
     public List<Claim> getAllClaims(@RequestParam(value="claimId", required=false) Integer claimId,
