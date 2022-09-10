@@ -19,11 +19,6 @@ public class ClaimsController {
     @Autowired
     private ClaimsService claimsService;
 
-//    @Autowired
-//    public void setClaimService(ClaimsService claimService) {
-//        this.claimsService = claimService;
-//    }
-
     @GetMapping()
     public List<Claim> getAllClaims(@RequestParam(value="claimId", required=false) Integer claimId,
                                     @RequestParam(value="policyNumber", required=false) Integer policyNumber,
@@ -48,11 +43,6 @@ public class ClaimsController {
         System.out.println("Looking for claim " + claimId);
         return claimsService.getClaimByClaimId(claimId);
     }
-
-//    @PostMapping
-//    public Claim addClaim(@RequestBody Claim newClaim) {
-//        return claimsService.add(newClaim);
-//    }
 
     @PutMapping("/{claimId}")
     public Claim updateClaim(@PathVariable("claimId") Integer claimId,

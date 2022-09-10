@@ -260,8 +260,5 @@ public class Claim {
         return Objects.hash(claimId);
     }
 
-
-
-
 }
 

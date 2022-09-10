@@ -41,7 +41,7 @@ public class ServiceTests {
                 null, null, null,"Cat", "Coon"));
 
         claims.add(new Claim(null, "motor", "in progress", 31, "Dany", "Cole",
-            LocalDate.now(), "crashed back bumper", "reversed into gate", 600,null, null,
+            LocalDate.now(), "crashed back bumper", "reversed into gate", 480,null, null,
             "BMW", "M3", 2019,null, null));
 
         Mockito.when(claimRepository.findAll()).thenReturn(claims);

@@ -2,6 +2,7 @@ package com.allstate.speedyclaimsserver.unittests;
 
 import com.allstate.speedyclaimsserver.control.ClaimsController;
 import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.service.BootstrapService;
 import com.allstate.speedyclaimsserver.service.ClaimsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,9 @@ public class ControllerTest {
 
     @MockBean
     ClaimsService claimsService;
+
+    @MockBean
+    BootstrapService bootstrapService;
 
     @BeforeEach
     public void runFirst() {
